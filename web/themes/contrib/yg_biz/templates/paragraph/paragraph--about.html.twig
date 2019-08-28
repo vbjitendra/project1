@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-6 col-sm-12 col-xs-12 about-img wow fadeInLeft">
+    <img src="{{ file_url(content.field_photo['#items'].entity.uri.value) }}" 
+    alt="{{ content.field_url[0]['#title'] }}">
+  </div>
+  <div class="col-md-6 col-sm-12 col-xs-12 about-description wow fadeInRight">
+     {% autoescape 'html' %}
+        {{ content.field_description.0 }}
+     {% endautoescape %}      
+  </div>
+</div>
+{% if content.field_url[0]['#url']|render is not empty %}
+	<a href="{{ content.field_url[0]['#url']|render }}" class="btn btn-infos">
+		{{ content.field_url[0]['#title'] }}
+	</a>
+{% endif %} 

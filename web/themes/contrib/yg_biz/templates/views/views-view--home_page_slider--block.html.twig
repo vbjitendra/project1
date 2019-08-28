@@ -1,0 +1,21 @@
+
+<div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+ <ul class="carousel-indicators">
+    {% for result in view.result %}
+      <li data-target="#carouselIndicators" data-slide-to="{{ loop.index-1 }}" class="{% if ( loop.index == 1 )  %}active{% endif %}"></li>
+    {% endfor %}
+ </ul>
+  <div class="carousel-inner" role="listbox">
+    {% for result in view.result %}
+      <div class="carousel-item {% if ( loop.index == 1 )  %}active{% endif %} slide{{loop.index}}">
+        <img src="{{ file_url(view.field.uri.value(view.result[loop.index-1])) }}" 
+        alt="{{ view.field.title.value(view.result[loop.index-1]) }}">
+        <div class="carousel-caption d-none d-md-block wow fadeInUp">
+          <h1>{{ view.field.title.value(view.result[loop.index-1]) }}</h1>
+          <p>{{ view.field.body.value(view.result[loop.index-1]) |striptags }}</p>
+          <a href="#" class="btn btn-link btn-infos">Read More</a>
+        </div>  
+      </div>
+     {% endfor %} 
+    </div>
+</div>

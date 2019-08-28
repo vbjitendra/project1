@@ -1,0 +1,27 @@
+<div class="col-md-3 col-sm-6 team-members wow fadeInUp">               
+    <img src="{{ file_url(content.field_photo['#items'].entity.uri.value) }}" 
+        alt="{{ content.field_title.0 }}">
+    <div class="services-caption">
+      <h5>{{ content.field_title.0 }}</h5>
+      <p>{{ content.field_designation.0 }}</p>
+      <div class="social">
+      {% if content.field_twitter_url.0|render is not empty %}
+        <a href="{{ content.field_twitter_url.0 }}" class="twitter"><i class="fa fa-twitter"></i></a>
+      {% endif %}
+      {% if content.field_facebook_url.0|render is not empty %}  
+        <a href="{{ content.field_facebook_url.0 }}" class="facebook"><i class="fa fa-facebook"></i></a>
+      {% endif %}
+      {% if content.field_instagram_url.0|render is not empty %}  
+        <a href="{{ content.field_instagram_url.0 }}" class="instagram"><i class="fa fa-instagram"></i></a>
+      {% endif %}
+      {% if content.field_google_plus_url.0|render is not empty %}  
+        <a href="{{ content.field_google_plus_url.0 }}" class="google-plus"><i class="fa fa-google-plus"></i></a>
+      {% endif %}
+      {% if content.field_pinterest_url.0|render is not empty %}  
+        <a href="{{ content.field_pinterest_url.0 }}" class="google-plus"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+      {% endif %}  
+      </div>
+    </div>
+</div>     
+
+

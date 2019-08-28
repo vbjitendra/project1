@@ -1,0 +1,33 @@
+global-style: # Libraries needed in all pages.
+  css:
+    theme:
+      'https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab': { type: external }
+      'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css': { type: external }
+      'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js': { type: external }
+      lib/magnific-popup/magnific-popup.css: {}
+      css/carousel.css: {}
+      css/animate.css: {}
+      css/custom.css: {}  
+      css/main.css: {} 
+
+  js:
+    'http://code.jquery.com/jquery-migrate-3.0.0.js': { type: external, minified: true }   
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js': { type: external }
+    js/popper.min.js: {}
+    js/wow.min.js: {}
+    js/carousel.js: {} 
+    lib/magnific-popup/magnific-popup.min.js: {}
+    js/gallery.js: {}
+    js/main.js: {}
+
+
+  dependencies:
+    - core/drupalSettings
+    - core/drupal
+    - core/jquery
+
+fontawesome:
+  version: 1.x
+  css:
+    theme:
+      lib/fontawesome/css/font-awesome.css: {}

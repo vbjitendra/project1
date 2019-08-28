@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a single field in a view.
+ *
+ * Available variables:
+ * - view: The view that the field belongs to.
+ * - field: The field handler that can process the input.
+ * - row: The raw result of the database query that generated this field.
+ * - output: The processed output that will normally be used.
+ *
+ * When fetching output from the row this construct should be used:
+ * data = row[field.field_alias]
+ *
+ * The above will guarantee that you'll always get the correct data, regardless
+ * of any changes in the aliasing that might happen if the view is modified.
+ *
+ * @see template_preprocess_views_view_field()
+ *
+ * @ingroup themeable
+ */
+#}
+
+
+<section id="blog" class="sub blog-bg">
+  <div class="container">
+    <div class="row">
+      {% for result in view.result %}
+        <div class="col-md-6 col-sm-12 blog-img wow fadeInUp">
+           <a href="{{ basepath }}/node/{{ view.field.nid.value(view.result[loop.index-1]) }}">
+              <img src="{{ file_url(view.field.uri.value(view.result[loop.index-1])) }}" alt="{{ view.field.title.value(view.result[loop.index-1]) }}">
+            </a>
+            <div class="blog-caption blog-caption-bg">
+              <h5><a href="{{ basepath }}/node/{{ view.field.nid.value(view.result[loop.index-1]) }}">
+              {{ view.field.title.value(view.result[loop.index-1]) }}</a></h5>
+                {% set text = view.field.body.value(view.result[loop.index-1]) |striptags %}
+                <p>{{ text|length > 200 ? text|slice(0, 150) ~ '' : text }}</p>
+                <div class="blog-info">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                {{ view.field.created.value(view.result[loop.index-1]) | date("j M Y") }}
+                <i class="fa fa-user" aria-hidden="true"></i>
+                {{ view.field.name.value(view.result[loop.index-1]) }}
+                </div>
+                <a href="{{ basepath }}/node/{{ view.field.nid.value(view.result[loop.index-1]) }}" class="btn btn-infos float-right">{{ 'Read more'|t }}</a>
+            </div>
+        </div> 
+      {% endfor %} 
+    </div>
+  </div>
+</section>          

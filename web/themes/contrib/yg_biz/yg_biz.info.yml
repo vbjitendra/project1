@@ -1,0 +1,28 @@
+name : YG Biz  
+description: YG Biz Drupal 8 theme for Business.
+# core: 8.x 
+type: theme 
+screenshot: screenshot.png 
+base theme: classy
+
+libraries:
+  - yg_biz/global-style
+  - yg_biz/fontawesome
+
+regions:
+  navigation: 'Navigation'
+  main_menu: 'Main Menu'
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  
+  slider: 'Slider'
+  location: 'Location'
+  contact_us: 'Contact us'
+
+
+# Information added by Drupal.org packaging script on 2018-07-25
+version: '8.x-1.0-alpha2'
+core: '8.x'
+project: 'yg_biz'
+datestamp: 1532504588

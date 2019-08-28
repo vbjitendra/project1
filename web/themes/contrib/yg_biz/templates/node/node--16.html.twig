@@ -1,0 +1,45 @@
+<!-- GET IN TOUCH SECTION -->
+<section id="get-in-touch" class="wow fadeInLeft">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12 contact-form">
+        <h4>GET IN TOUCH</h4>
+          {{ contact_us }}
+      </div>
+      <div class="col-md-6 col-sm-12 contact-details wow fadeInRight">
+        <p>Welcome to our Website. We are glad to have you around. If you need to contact us, you can use the details below.</p>
+          <div class="location">
+            <i class="fa fa-map-marker"></i>
+            <h4>COMPANY NAME</h4>
+              {% if address %}
+                {% autoescape 'html' %}
+                  {{ address|raw }}
+                {% endautoescape %}
+              {% endif %}
+          </div>
+          <div class="phone">
+           {% if phone_no|render is not empty %}
+            <i class="fa fa-phone"></i>
+             <p>{{ phone_no }}</p>
+           {% endif %}
+          </div>
+          <div class="mail">
+            {% if email|render is not empty %}
+             <i class="fa fa-envelope"></i>
+              <p>{{ email }}</p>
+            {% endif %}  
+          </div>
+          <div class="timing">
+           {% if time|render is not empty %}
+            <i class="fa fa-clock-o""></i>
+              <p>{{ time }}</p>
+            {% endif %}
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="map">
+  {{ location }}
+</div>
+<!-- END GET IN TOUCH section -->

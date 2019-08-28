@@ -1,0 +1,108 @@
+
+<!-- HEADER SECTION -->
+<header>
+ <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+  <div class="container">
+    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home""><img src="{{ logopath }}"></a>
+    {% if page.main_menu %}
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"  aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>    
+    {% endif %}  
+     <div class="collapse navbar-collapse" id="navbarResponsive">
+     {% if page.main_menu %}  
+      <ul class="navbar-nav ml-auto">
+        {{ page.main_menu }}
+      </ul>
+    {% endif %}      
+    </div>
+  </div>  
+  </nav>
+</header>
+<!-- END HEADER SECTION -->
+<!-- BANNER SLIDER SECTION -->
+<section id="banner-slider">
+  {{ page.slider }}
+</section>
+<!-- END BANNER SLIDER SECTION -->
+<!-- ABOUT SECTION -->
+<div id="main_content">
+  {{ page.content }}
+</div>
+<!-- END CLIENTS SECTION -->
+<!-- CALL TO ACTION SECTION -->
+<section id="call-to-action" class="wow fadeInUp">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h2>
+          {% if cta_desc %}
+           {% autoescape 'html' %}
+            {{ cta_desc | raw }}
+           {% endautoescape %}
+          {% endif %}
+        </h2>
+      </div>
+      <div class="col-md-4">
+        {% if cta_link|render is not empty %}
+          <a href="{{ cta_link }}" class="btn btn-infos">Buy Now</a>
+        {% endif %} 
+      </div>
+    </div>  
+  </div>
+</section>
+<!-- END CALL TO ACTION SECTION -->
+<!-- FOOTER SECTION-->
+<section id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-12 wow fadeInUp">
+        <h5>Contact</h5>
+        {% if address %}
+          {% autoescape 'html' %}
+            {{ address|raw }}
+          {% endautoescape %}
+        {% endif %}
+        {% if phone_no|render is not empty%}
+          <a href="#">{{ phone_no }}</a>
+        {% endif %}  
+      </div>
+      <div class="col-md-4 col-sm-12 wow fadeInUp">
+       <div class="footer_main_menu"> 
+        <h5>Info</h5>
+          {{ page.main_menu }}  
+        </div>  
+      </div>
+      <div class="col-md-4 col-sm-12 wow fadeInUp">
+        <h5>Social</h5>
+        <div class="social">
+          {% if twitter_url|render is not empty %}
+            <a href="{{ twitter_url}}" class="twitter"><i class="fa fa-twitter"></i></a>
+          {%  endif %} 
+          {% if facebook_url|render is not empty %}
+           <a href="{{ facebook_url }}" class="facebook"><i class="fa fa-facebook"></i></a>
+          {% endif %} 
+          {% if instagram_url|render is not empty %}
+            <a href="{{ instagram_url}}" class="instagram"><i class="fa fa-instagram"></i></a>
+          {% endif %}
+          {% if google_plus|render is not empty %}
+            <a href="{{ google_plus }}" class="google-plus"><i class="fa fa-google-plus"></i></a>
+          {% endif %}
+          {% if pinterest_url|render is not empty %}
+            <a href="{{ pinterest_url }}" class="google-plus"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+          {% endif %}  
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="copyright wow fadeInUp">
+  {% if sub_footer %}
+   {% autoescape 'html' %}
+    {{ sub_footer|raw }}
+   {% endautoescape %} 
+  {% endif %}
+</div>
+<!-- END FOOTER SECTION -->
+
